@@ -6,7 +6,9 @@ on:
 jobs:
   terraform:
     name: deploy to azure portal
-    runs-on: DESKTOP-5B0AEU5      
+    runs-on: 
+      - self-hosted
+      - DESKTOP-5B0AEU5      
 
     steps:
       # Step 1 : Checkout repository
