@@ -1,0 +1,32 @@
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  terraform:
+    name: deploy to azure portal
+    runs-on: DESKTOP-5B0AEU5      
+
+    steps:
+      # Step 1 : Checkout repository
+      - name: Checkout code 
+        uses: actions/checkout@v4
+
+      # Step 2 : Install terraform 
+      - name: Setup Terraform 
+        uses: hashicorp/setup-terraform@v3 
+
+      # Step 3 : Terraform Init 
+      - name: Terraform Init 
+        run:  terraform init 
+
+      # Step 4 : Terraform Plan 
+      - name: Terraform Plan 
+        run:  terraform plan 
+
+      # Step 5 : Terraform Apply 
+      - name: Terraform Apply 
+        run:  terraform apply -auto-approve
+         
+    
